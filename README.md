@@ -31,7 +31,7 @@ wmic path CIM_VoltageSensor get *
 
 ## Patching and building QEMU
 ```
-git clone https://github.com/zhaodice/qemu-anti-detection.git
+git clone https://github.com/mrdhanz/qemu-update.git
 wget https://download.qemu.org/qemu-10.2.2.tar.xz
 tar xvJf qemu-10.2.2.tar.xz
 cd qemu-10.2.2

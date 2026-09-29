@@ -35,7 +35,7 @@ git clone https://github.com/mrdhanz/qemu-update.git
 wget https://download.qemu.org/qemu-10.2.2.tar.xz
 tar xvJf qemu-10.2.2.tar.xz
 cd qemu-10.2.2
-git apply ../qemu-anti-detection/qemu-10.2.2.patch
+git apply ../qemu-update/qemu-10.2.2.patch
 ./configure
 sudo make install -j$(nproc)
 ```

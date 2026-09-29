@@ -1,29 +1,3 @@
-## Other Project
-For Proxmox VE(PVE) Anti Detection, see https://github.com/zhaodice/proxmox-ve-anti-detection
-
-# QEMU Anti Detection
-A patch for various QEMU versions that aims to prevent VM detection methods based on data reported by the emulator. The "QEMU keyboard" for example is then renamed to "ASUS keyboard". Serial numbers, the VM bit in the guest's UEFI and the Boot Graphics Record Table are also modified. 
-However, because of timing based attacks like RDTSC, [which is reported incorrectly in a VM](https://github.com/WCharacter/RDTSC-KVM-Handler), this is not a silver bullet. 
-But changing this information of the virtual devices is still an integral part of creating an undetected virutal machine. 
-
- | Type       | Engine | Bypass |
- |------------|--------|--------|
- | AntiCheat  | Anti Cheat Expert (ACE) | ☑️ |
- | AntiCheat  | Easy Anti Cheat (EAC) | ☑️ | 
- | AntiCheat  | Gepard Shield | ☑️ (Needs patched kernel on host: https://github.com/WCharacter/RDTSC-KVM-Handler ) |
- | AntiCheat  | Mhyprot | ☑️ |
- | AntiCheat  | nProtect GameGuard (NP) | ☑️ | 
- | AntiCheat  | Roblox | ☑️ May work with Hyper-V in the guest: https://github.com/zhaodice/qemu-anti-detection/issues/56 | 
- | AntiCheat  | Vanguard | ‼️(1: Incorrect function) | 
- | Encrypt    | Enigma Protector | ☑️ | 
- | Encrypt    | Safegine Shielden | ☑️ |
- | Encrypt    | Themida | ☑️ |
- | Encrypt    | VMProtect | ☑️ | 
- | Encrypt    | VProtect | ☑️ |       
-
-‼️ There are games that cannot run under this environment but I am not sure whether QEMU has been detected, because the game doesn't report "Virtual machine detected" specifically. 
-If you have any clue, feel free to tell me :)
-
 ### Flaws this patch does not fix in QEMU's source:
 These commands exit with "No instance(s) available" and could therefore EXPOSE THE VM. We do not yet know how to simulate this data.
 ```
@@ -154,4 +128,3 @@ Insert YOUR virtual machine's uuid.
   </qemu:commandline>
 </domain>
 ```
-![Screenshot_20220819_230305](https://user-images.githubusercontent.com/63996691/185649897-b7609626-ee6d-42b1-bc5e-4465cb41a19a.png)
